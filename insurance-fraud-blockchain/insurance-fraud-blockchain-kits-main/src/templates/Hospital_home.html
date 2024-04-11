@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../static/favicon.png"
+      type="image/x-icon"
+    />
+
+    <title>Hospital Home</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-image: url("../static/hh1");
+
+        background-size: cover;
+        background-position: cover;
+        margin: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+  </head>
+  <body>
+    <div class="container">
+      <button style="text-decoration: none; float: right">
+        <a class="button" href="/logout">Logout</a>
+      </button>
+
+      <h1>Welcome, Hospital</h1>
+
+      <h2>Upload Claim</h2>
+      <form action="/upload_claim" method="post" enctype="multipart/form-data">
+        <label for="patient_name">Patient Name:</label>
+        <input type="text" id="patient_name" name="patient_name" required />
+
+        <label for="claim_id">Claim ID:</label>
+        <input type="text" id="claim_id" name="claim_id" required />
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required />
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="number" id="phone_number" name="phone_number" required />
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required />
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required />
+
+        <label for="diagnosis">Diagnosis:</label>
+        <input type="text" id="diagnosis" name="diagnosis" required />
+
+        <label for="start_month">Claim Start Month:</label>
+        <input type="month" id="start_month" name="start_month" required />
+        <div class="container">
+          <div class="file-drop-area">
+            <span class="fake-btn">Choose files</span>
+            <span class="file-msg">or drop files here</span>
+            <input class="file-input" type="file" name="chooseFile" multiple />
+            <div class="item-delete"></div>
+          </div>
+        </div>
+
+        <label for="claim_amount">Total Claim Amount:</label>
+        <input type="number" id="claim_amount" name="claim_amount" required />
+
+        <button type="submit">Upload Claim</button>
+      </form>
+      <h2>Patients and Their Claims</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Claim ID</th>
+            <th>Age</th>
+            <th>Phone Number</th>
+            <th>Date of Birth</th>
+            <th>Address</th>
+            <th>Diagnosis</th>
+            <th>Claim Start Month</th>
+            <th>Total Claim Amount</th>
+            <th>Claim Copy</th>
+            <th>Claim Status</th>
+          </tr>
+          {% for i in patients_and_claims %}
+          <tr>
+            <td>{{i.patient_name}}</td>
+            <td>{{i.claim_id}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.phone_number}}</td>
+            <td>{{i.dob}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.diagnosis}}</td>
+            <td>{{i.start_month}}</td>
+            <td>{{i.claim_amount}}</td>
+            <td>
+              <a href="http://127.0.0.1:8080/ipfs/{{i.file}}" target="_blank"
+                >Click Here</a
+              >
+            </td>
+            {%if i.status==0%}
+            <td>Pending</td>
+            {%endif%} {%if i.status==1%}
+            <td>Accepted</td>
+            {%endif%} {%if i.status==2%}
+            <td>Rejected</td>
+            {%endif%}
+          </tr>
+          {% endfor %}
+        </thead>
+        <tbody>
+          <!-- Populate this table dynamically with patient and claim data from your backend -->
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

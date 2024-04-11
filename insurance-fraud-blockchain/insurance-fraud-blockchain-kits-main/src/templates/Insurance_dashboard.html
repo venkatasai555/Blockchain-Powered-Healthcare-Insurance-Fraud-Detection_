@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="../static/favicon.png" type="image/x-icon">
+
+
+  <title>Patient Home</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-image: url("../static/I3");
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="btn btn-primary" style="text-decoration: none; float: right;"><a class="btn btn-primary" href="/logout">Logout</a></button>
+
+    <form action="/patient_home" method="get">
+
+    <h1>Welcome, {{ name }}</h1>
+    <div>
+      <!-- Add more patient information fields as needed -->
+      <h2>Claim Status</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Patient Name</th>
+            <th>Hospital Name</th>
+            <th>Claim Id</th>
+            <th>Claim Status</th>
+            <th>Claim</th>
+            <th>Claim Amount</th>
+            <th>Status</th>
+            <th>Action1</th>
+            <th>Action2</th>
+            <!-- Add more columns as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for claim in claims %}
+          <tr>
+            <td>{{ claim[0] }}</td>
+            <td>{{ claim[1] }}</td>
+            <td>{{ claim[2] }}</td>
+            <td>{{ claim[3] }}</td>
+            <td><a href="http://127.0.0.1:8081/ipfs/{{ claim[6] }}" target="_blank">Click Here</a></td>
+            <td>{{claim[5]}}</td>
+            <td>{{claim[4]}}</td>
+            {%if claim[4]==0%}
+                <td><a class="btn btn-primary" href="/updatestatus/{{claim[2]}}/1">Accept</a></td>
+                <td><a class="btn btn-danger" href="/updatestatus/{{claim[2]}}/2">Reject</a></td>
+            {%endif%}
+            {%if claim[4]==1%}
+                <td colspan="2">Claim Approved</td>
+            {%endif%}
+            {%if claim[4]==2%}
+                <td colspan="2">Claim Rejected</td>
+            {%endif%}
+            <!-- Add more columns as needed -->
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

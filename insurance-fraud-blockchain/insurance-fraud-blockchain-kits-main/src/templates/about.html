@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../static/favicon.png"
+      type="image/x-icon"
+    />
+
+    <title>About - Insurance Fraud Detection</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        margin: 0;
+      }
+
+      .navbar {
+        background-color: black;
+        color: white;
+        padding: 10px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: white;
+        margin-right: 20px;
+      }
+
+      .navbar a:hover {
+        background-color: #333; /* Darken the background on hover */
+      }
+
+      .dropdown-menu {
+        max-height: 300px; /* Adjust height as needed */
+        overflow-y: auto;
+      }
+
+      .dropdown-menu a {
+        color: white; /* Text color */
+      }
+
+      .dropdown-menu a:hover {
+        background-color: skyblue; /* Darken the background on hover */
+      }
+
+      @media (min-width: 992px) {
+        .navbar .nav-item .dropdown-menu {
+          display: none;
+          position: absolute;
+          background-color: #333;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+        }
+
+        .navbar .nav-item:hover .dropdown-menu {
+          display: block;
+        }
+      }
+
+      .about-image {
+        min-height: 500px;
+        overflow: hidden; /* Ensure image doesn't overflow */
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover; /* Maintain aspect ratio */
+      }
+
+      .section-title h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #007bff;
+        /* margin-bottom: 20px; */
+      }
+
+      .section-title h5 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #007bff;
+        /* margin-bottom: 10px; */
+      }
+
+      .section-title h5::before {
+        content: "";
+        display: inline-block;
+        width: 5px;
+        height: 20px;
+        background-color: #007bff;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+
+      .about-text {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+
+      .feature-list h5 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 10px;
+      }
+
+      .feature-list i {
+        font-size: 20px;
+        color: #28a745;
+        margin-right: 10px;
+      }
+
+      .contact-info h5 {
+        font-size: 18px;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 5px;
+      }
+
+      .contact-info h4 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #28a745;
+        margin-bottom: 0;
+      }
+
+      .contact-info {
+        display: flex;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .contact-info .bg-primary {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-info .bg-primary i {
+        font-size: 30px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1 class="navbar-brand">Insurance Fraud Detection</h1>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+          >Login Pages</a
+        >
+        <div class="dropdown-menu">
+          <a href="/patient_login" class="dropdown-item">Patient Login</a>
+          <a href="/hospital_login" class="dropdown-item"
+            >Hospital Management Login</a
+          >
+          <a href="/insurance_login" class="dropdown-item"
+            >Insurance Company Login</a
+          >
+        </div>
+      </div>
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+          >SignUp Pages</a
+        >
+        <div class="dropdown-menu">
+          <a href="/patient_signup" class="dropdown-item">Patient Sign-Up</a>
+          <a href="/hospital_signup" class="dropdown-item"
+            >Hospital Management Sign-Up</a
+          >
+          <a href="/insurance_signup" class="dropdown-item"
+            >Insurance Company Sign-Up</a
+          >
+        </div>
+      </div>
+      <div>
+        <a href="/contact">Contact Us</a>
+
+      </div>
+    </div>
+
+    
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="section-title position-relative pb-2">
+            <h5 class="fw-bold text-primary text-uppercase">About</h5>
+            <h1 class="mb-0">Health Insurance Claims Fraud Detection</h1>
+          </div>
+          <p class="about-text">
+            Insurance companies and providers of health care benefits lose
+            hundreds of millions of dollars yearly due to fraudulent claims for
+            health benefits. Some of these are bogus claims that originate from
+            insured persons, while others are payments for insured services that
+            are not needed but are wrongly prescribed by providers who stand to
+            make illegal profits. The U.S.-based National Health Care Anti-Fraud
+            Association estimates healthcare fraud costs the nation no less than
+            $68 billion annually — about three percent of the nation’s $2.26
+            trillion in healthcare spending. Others say that number may be
+            substantially higher. The bottom line is fraud costs everyone
+            through higher premiums or through tax dollars spent on public
+            health benefits. Benefits fraud is a serious crime and is treated
+            that way by law enforcement agencies around the world. This
+            whitepaper will outline common schemes and case studies to help your
+            organization prevent or uncover fraud ahead of it being paid out.
+          </p>
+          <div class="feature-list">
+            <h5>Features:</h5>
+            <div class="row">
+              <div class="col-sm-6">
+                <i class="fas fa-check"></i> Flexibility<br />
+                <i class="fas fa-check"></i> Maintainability
+              </div>
+              <div class="col-sm-6">
+                <i class="fas fa-check"></i> 24/7 Portable<br />
+                <i class="fas fa-check"></i> Usability (User-friendly)
+              </div>
+            </div>
+          </div>
+          <div class="contact-info">
+            <div
+              class="d-flex align-items-center justify-content-center bg-primary mb-3"
+            >
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div>
+              <h5>Call to ask any question</h5>
+            <h4>+91 7780762457</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 about-image">
+          <img
+            src="../static/3.jpg"
+            style="width: 120%; height: 70%"
+            alt="About Image"
+          />
+        </div>
+      </div>
+    </div>
+    
+    <section class="about_section about_section1 layout_padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="img-box">
+              <img src="../static/b2.jpg" alt="/"  style="width: 100%; height: 100%"/>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="detail-box">
+              <div class="heading_container">
+                <h2>About <span>Us</span></h2>
+              </div>
+              <p>
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form, by
+                injected humour, or randomised words which don't look even
+                slightly believable. If you are going to use a passage of Lorem
+                Ipsum, you need to be sure there isn't anything embarrassing
+                hidden in the middle of text. All
+              </p>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

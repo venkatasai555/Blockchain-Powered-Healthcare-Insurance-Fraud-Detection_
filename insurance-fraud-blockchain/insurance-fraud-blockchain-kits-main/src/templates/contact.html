@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      rel="shortcut icon"
+      href="../static/favicon.png"
+      type="image/x-icon"
+    />
+    <title>Insurance Fraud Detection</title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="../static/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome style -->
+    <link href="../static/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="../static/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="../static/responsive.css" rel="stylesheet" />
+    <style>
+      .navbar {
+        background-color: black;
+        color: white;
+        padding: 10px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: white;
+        margin-right: 20px;
+      }
+
+      .navbar a:hover {
+        background-color: #333; /* Darken the background on hover */
+      }
+
+      .dropdown-menu {
+        max-height: 300px; /* Adjust height as needed */
+        overflow-y: auto;
+      }
+
+      .dropdown-menu a {
+        color: white; /* Text color */
+      }
+
+      .dropdown-menu a:hover {
+        background-color: skyblue; /* Darken the background on hover */
+      }
+
+      @media (min-width: 992px) {
+        .navbar .nav-item .dropdown-menu {
+          display: none;
+          position: absolute;
+          background-color: #333;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+        }
+
+        .navbar .nav-item:hover .dropdown-menu {
+          display: block;
+        }
+      }
+
+      .map_container {
+        position: relative;
+        width: 120%;
+        height: 120px; /* Adjust height as needed */
+      }
+
+      .map {
+        position: absolute;
+        top: 60%;
+        left: 50px;
+        transform: translateY(-55%);
+        width: 80%;
+        height: 70%;
+      }
+    </style>
+  </head>
+
+  <body class>
+    <div>
+      <!-- header section strats -->
+      <div class="navbar">
+        <h1 class="navbar-brand">Insurance Fraud Detection</h1>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+            >Login Pages</a
+          >
+          <div class="dropdown-menu">
+            <a href="/patient_login" class="dropdown-item">Patient Login</a>
+            <a href="/hospital_login" class="dropdown-item"
+              >Hospital Management Login</a
+            >
+            <a href="/insurance_login" class="dropdown-item"
+              >Insurance Company Login</a
+            >
+          </div>
+        </div>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+            >SignUp Pages</a
+          >
+          <div class="dropdown-menu">
+            <a href="/patient_signup" class="dropdown-item">Patient Sign-Up</a>
+            <a href="/hospital_signup" class="dropdown-item"
+              >Hospital Management Sign-Up</a
+            >
+            <a href="/insurance_signup" class="dropdown-item"
+              >Insurance Company Sign-Up</a
+            >
+          </div>
+        </div>
+        <div>
+          <a href="/contact">Contact Us</a>
+        </div>
+      </div>
+
+      <!-- end header section -->
+    </div>
+
+    <!-- contact section -->
+
+    <section class="contact_section">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 px-2">
+            <div class="map_container">
+              <div class="map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61263.805117283686!2d80.39331873134502!3d16.323566604498545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a755cb1787785%3A0x9f7999dd90f1e694!2sGuntur%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1712800718176!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  frameborder="0"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-5 mx-auto">
+            <div class="form_container mb_mobile_45 pr-xl-4">
+              <div class="heading_container heading_center">
+                <h2 class="">Get In Touch</h2>
+              </div>
+              <form action="#" class="contact_form">
+                <input
+                  type="text"
+                  name="your_name"
+                  class="form-control"
+                  id="inputName"
+                  placeholder="Your Name"
+                />
+                <input
+                  type="text"
+                  name="phone_number"
+                  class="form-control"
+                  id="inputNumber"
+                  placeholder="Mobile Number"
+                />
+                <input
+                  type="email"
+                  name="email_address"
+                  class="form-control"
+                  id="inputMail"
+                  placeholder="Email"
+                />
+                <input
+                  type="text"
+                  name="your_message"
+                  class="form-control"
+                  id="inputMessage"
+                  placeholder="Message"
+                />
+                <div class="btn-box btn-center">
+                  <button type="submit" class="submit_btn">Send</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact section -->
+
+    <!-- jQery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+  </body>
+</html>

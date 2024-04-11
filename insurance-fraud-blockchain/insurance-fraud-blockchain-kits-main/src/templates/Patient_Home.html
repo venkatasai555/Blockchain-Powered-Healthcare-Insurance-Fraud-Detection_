@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../static/favicon.png" type="image/x-icon">
+
+  <title>Patient Home</title>
+  <style>
+    body {
+      margin: 0;
+        background-image: url("../static/p14.jpg");
+
+        background-size: cover;
+        background-position: cover;
+        margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="btn btn-primary" style="text-decoration: none; float: right;"><a class="btn btn-primary" href="/logout">Logout</a></button>
+
+    <form action="/patient_home" method="get">
+
+    <h1>Welcome, {{ name }}</h1>
+    <div>
+      <p><strong>Diagnosis:</strong> {{ diagnosis }}</p>
+      <p><strong>Age:</strong> {{ age }}</p>
+      <p><strong>Phone:</strong> {{ phone }}</p>
+      <!-- Add more patient information fields as needed -->
+      <h2>Claim Status</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Claim By</th>
+            <th>Id</th>
+            <th>Month</th>
+            <th>Claim Status</th>
+            <th>Claim</th>
+            <!-- Add more columns as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for claim in claims %}
+          <tr>
+            <td>{{ claim[0] }}</td>
+            <td>{{ claim[1] }}</td>
+            <td>{{claim[2]}}</td>
+            {%if claim[3]==0%}
+              <td>Claim Pending</td>
+            {%endif%}
+            {%if claim[3]==1%}
+              <td>Claim Approved</td>
+            {%endif%}
+            {%if claim[3]==2%}
+              <td>Claim Rejected</td>
+            {%endif%}
+            <td><a href="http://127.0.0.1:8081/ipfs/{{ claim[4] }}" target="_blank">Click Here</a></td>
+            <!-- Add more columns as needed -->
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
